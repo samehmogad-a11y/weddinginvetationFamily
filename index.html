@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="https://samehmogad-a11y.github.io/Sameh-NadaWeddingInvitation/assists/fav.jpeg">
+<title> Sameh & Nada Wedding Invitation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Angkor&family=Aref+Ruqaa:wght@400;700&family=Arizonia&family=Jim+Nightshade&family=Lavishly+Yours&family=Monsieur+La+Doulaise&family=Rakkas&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://samehmogad-a11y.github.io/Sameh-NadaWeddingInvitation/">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<link rel="icon" type="image/png" href="assists/fav.jpeg">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+:root{
+    --bg-color: #f5f3ef;
+    --primary: #835d2f;
+    --text: #2b2b2b;
+}
+
+
+img, svg, video {
+    max-width: 100%;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+    background: #f5f3ef;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #f5f3ef;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 80vmax;
+    height: 80vmax;
+
+    background: radial-gradient(
+        circle,
+        rgba(131,93,47,0.75) 0%,
+        rgba(131,93,47,0.25) 40%,
+        transparent 75%
+    );
+
+    top: 0;
+    left: 0;
+
+    transform: translate(-40%, -40%);
+
+    filter: blur(110px);
+    opacity: 0.9;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 90vmax;
+    height: 90vmax;
+
+    background: radial-gradient(
+        circle,
+        rgba(131, 93, 47, 0.55) 0%,
+        rgba(131, 93, 47, 0.25) 40%,
+        transparent 70%
+    );
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(1.4);
+
+    filter: blur(120px);
+    opacity: 0.9;
+
+    z-index: -1;
+    pointer-events: none;
+}
+section {
+    background: transparent !important;
+}
+
+/* شاشة الظرف */
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:20;
+    transition:opacity 2.5s ease;
+}
+
+#envelopeVideo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* منطقة الضغط */
+#tapToOpen{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:220px;
+    height:220px;
+    cursor:pointer;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+}
+
+
+@keyframes pulse{
+    0%{opacity:.4;}
+    50%{opacity:1;}
+    100%{opacity:.4;}
+}
+
+/* محتوى الدعوة */
+#invitation{
+    position:relative;
+    min-height:100vh;
+    opacity:0;
+    transition:opacity 2.5s ease;
+    z-index:10;
+}
+
+#invitation.show{
+    opacity:1;
+}
+
+.names{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.date{
+    font-size:22px;
+}
+
+.tap-text{
+    position:absolute;
+    bottom:50px;
+    left:50%;
+    transform:translateX(-50%);
+
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+
+    text-shadow:0 0 20px rgba(0,0,0,.8);
+
+    animation:pulse 1.8s infinite;
+
+    z-index:1000;
+}
+
+.invitation-content{
+    width:100%;
+    height:100vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:80px;
+    color:white;
+    overflow:hidden;
+}
+
+/* الفيديو الخلفية */
+.bg-video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+}
+
+/* overlay فوق الفيديو */
+.invitation-content::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+
+    background: rgba(0, 0, 0, 0.274);
+}
+/* النص فوق الكل */
+.invitation-content .text{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+
+
+/* النص فوق */
+.invitation-content .text{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.invitation-content h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.invitation-content p{
+    font-size:20px;
+    opacity:0.9;
+}
+
+.invitation-content span{
+    display:block;
+    margin-top:15px;
+    font-size:18px;
+    letter-spacing:2px;
+}
+.english{
+    font-family: 'Playfair Display', serif;
+}
+
+.rakkas-regular {
+  font-family: "Rakkas", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.aref-ruqaa-regular {
+  font-family: "Aref Ruqaa", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.aref-ruqaa-bold {
+  font-family: "Aref Ruqaa", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.angkor-regular {
+  font-family: "Angkor", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:40px 0;
+}
+
+.divider .line{
+    flex:1;
+    height:1px;
+    background:rgba(255,255,255,0.5);
+}
+
+.divider svg{
+    width:16px;
+    height:16px;
+    color:white;
+}
+
+#countdown-section{
+    width:100%;
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:#f5f3ef;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.cd-title{
+    font-size:32px;
+    margin-bottom:40px;
+    font-family:'Playfair Display', serif;
+    letter-spacing:2px;
+}
+
+.countdown-box{
+    display:flex;
+    gap:25px;
+}
+
+.time{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.time span{
+    font-size:50px;
+    font-weight:bold;
+}
+
+.time small{
+    margin-top:5px;
+    font-size:14px;
+    opacity:0.7;
+}
+
+#musicBtn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+
+    width:58px;
+    height:58px;
+
+    border:none;
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:#F8E8C8;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35),
+        inset 0 1px 1px rgba(255,255,255,.15);
+
+    transition:.35s ease;
+
+    z-index:9999;
+}
+
+#musicBtn i{
+    font-size:20px;
+    transition:.35s;
+}
+
+#musicBtn:hover{
+    transform:translateY(-4px) scale(1.05);
+
+    background:rgba(255,255,255,.15);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.45),
+        0 0 25px rgba(248,232,200,.25);
+}
+
+#musicBtn:hover i{
+    transform:scale(1.15);
+}
+
+#musicBtn:active{
+    transform:scale(.95);
+}
+
+#musicBtn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+
+    /* باقي الـ CSS بتاع الزر */
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:opacity .5s ease,
+               transform .5s ease,
+               visibility .5s;
+}
+
+/* لما يظهر */
+#musicBtn.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+.vertical-divider{
+    width:1px;
+    height:40px;
+    align-self:center;
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(131,93,47,.6),
+        transparent
+    );
+}
+
+.lavishly-yours-regular {
+  font-family: "Lavishly Yours", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.arizonia-regular {
+  font-family: "Arizonia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.section-divider{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 0;
+
+    background:#f5f3ef;   /* نفس لون السكشن */
+}
+
+.section-divider svg{
+
+    width:220px;
+
+    height:auto;
+
+    color:#5a0000;
+
+    opacity:.45;
+}
+
+.gallery-section{
+    background:#f5f3ef;
+    padding:80px 0;
+    overflow:hidden;
+}
+
+.gallery-title{
+    text-align:center;
+    font-family:Arizonia;
+    color:#835d2f;
+    font-size:55px;
+    margin-bottom:40px;
+}
+
+.swiper{
+    width:100%;
+    padding:40px 0;
+}
+
+.swiper-slide{
+    width:260px;
+    height:420px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.4s;
+}
+
+.swiper-slide img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+}
+
+/* يكبر الصورة اللي في النص */
+
+.swiper-slide-active{
+
+    transform:scale(1.15);
+
+}
+.time-section{
+    background:#f5f3ef;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.time-title{
+    font-family:Arizonia;
+    font-size:55px;
+    color:#835d2f;
+    margin-bottom:50px;
+    font-weight:400;
+}
+
+.time-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    flex-wrap:nowrap;   /* يمنع النزول لسطر جديد */
+}
+
+.time-box{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.time-number{
+    font-family:'Playfair Display', serif;
+    font-size:35px;
+    color:#835d2f;
+    font-weight:300;
+    white-space: nowrap;   /* يخلي 6 PM في سطر واحد */
+}
+
+.time-box small{
+
+    margin-top:10px;
+
+    font-family:'Playfair Display', serif;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+    color:#835d2faa;
+
+}
+
+.time-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+.time-divider .line{
+
+    width:40px;
+
+    height:1px;
+
+    background:#835d2f55;
+
+}
+
+.time-divider svg{
+
+    width:12px;
+
+    color:#835d2f99;
+
+}
+
+#venue-section{
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    background: #f9f6f2; /* لون هادي فخم */
+    font-family: 'Playfair Display', serif;
+    overflow: hidden;
+}
+
+/* الصورة */
+#venue-section img{
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* العنوان */
+.venue-title{
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #2b2b2b;
+}
+
+/* اسم المكان */
+.venue-name{
+    font-size: 24px;
+    font-weight: 500;
+    color: #5a4a3f;
+    margin-bottom: 5px;
+}
+
+/* العنوان */
+.venue-address{
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* الفاصل */
+.venue-divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.venue-divider div{
+    width: 60px;
+    height: 1px;
+    background: #cbb8a8;
+}
+
+.venue-divider svg{
+    width: 18px;
+    height: 18px;
+    color: #cbb8a8;
+}
+
+/* الماب */
+.map-box{
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.map-box iframe{
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+/* زرار الخريطة */
+.map-btn{
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #5a0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.map-btn:hover{
+    background: #5a4a3f;
+    transform: translateY(-2px);
+}
+
+.jim-nightshade-regular {
+  font-family: "Jim Nightshade", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+#wedding-footer{
+    padding: 100px 20px;
+    text-align: center;
+    background: #f5f3ef; /* نفس خلفية الموقع */
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(131,93,47,0.2);
+}
+
+/* glow خفيف زي باقي السكشنات */
+#wedding-footer::before,
+#wedding-footer::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    filter: blur(25px);
+}
+
+#wedding-footer::before{
+    top:-80px;
+    left:-80px;
+}
+
+#wedding-footer::after{
+    bottom:-100px;
+    right:-100px;
+}
+
+/* الأيقونة */
+.footer-icon{
+    color:#835d2f;
+    opacity:0.5;
+    margin-bottom:25px;
+}
+
+/* الأسماء */
+.footer-names{
+    font-family: "Arizonia", cursive;
+    font-size: 60px;
+    color:#835d2f;
+    margin-bottom:10px;
+    letter-spacing:1px;
+}
+
+.footer-names span{
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    color:#835d2faa;
+}
+
+/* التاريخ */
+.footer-date{
+    font-family: "Playfair Display", serif;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color:#835d2faa;
+    margin-bottom:30px;
+}
+
+/* الفاصل */
+.footer-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:30px 0;
+}
+
+.footer-divider div{
+    width:70px;
+    height:1px;
+    background:rgba(131,93,47,0.3);
+}
+
+.footer-divider svg{
+    width:14px;
+    color:#835d2f;
+    opacity:0.6;
+}
+
+/* النص */
+.footer-text{
+    font-family: "Playfair Display", serif;
+    font-size:14px;
+    color:#835d2faa;
+    margin-bottom:10px;
+    line-height:1.8;
+}
+
+/* الرابط */
+.footer-link{
+    font-family: "Playfair Display", serif;
+    font-size:13px;
+    color:#835d2f;
+    text-decoration:none;
+    letter-spacing:1px;
+    transition:0.3s;
+}
+
+.footer-link:hover{
+    opacity:0.7;
+    letter-spacing:2px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="assists/I See The Light (From Tangled).mp3" type="audio/mpeg">
+    </audio>
+     <button id="musicBtn">
+    <i id="musicIcon" class="fa-solid fa-volume-high"></i>
+    </button>
+
+<!-- شاشة الفيديو -->
+<section id="intro">
+
+    <video
+        id="envelopeVideo"
+        preload="auto"
+        playsinline
+        webkit-playsinline
+        
+    >
+        <source src="assists/opening.mp4" type="video/mp4">
+    </video>
+
+    
+
+    <div class="tap-text">
+    
+    </div>
+
+</section>
+
+<section id="invitation"> 
+<div class="invitation-content" style="padding: 3%;">
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="assists/WhatsApp Video 2026-06-25 at 4.26.30 PM.mp4" type="video/mp4">
+    </video>
+    <div class="text">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 style="font-family: aref ruqaa;"> بسم الله الرحمن الرحيم </h2>
+        <br>
+        <br>
+        <h3 style="font-family: 'Playfair Display', serif;">WE'RE GETTING MARRIED</h3>
+        <span style="font-family:monsieur la doulaise; font-size:70px; margin-top: 0%; ">Sameh</span>
+        <span style="font-family:monsieur la doulaise; font-size:30px; margin-top: 0%;">&</span>
+        <span style="font-family:monsieur la doulaise; font-size:70px; margin-top: 0%; ">Nada</span>
+         <h2 style="font-family: aref ruqaa;"> في الدنيا والآخرة  </h2>
+         <br>
+         <h3 style="font-family: 'Playfair Display', serif;"> In This World , And In the Next  </h3>
+                <br>
+        <br>
+         <div class="divider">
+                 <div class="line"></div>
+
+                 <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6Z"></path>
+                 </svg>
+
+                 <div class="line"></div>
+        </div>
+                 <br>
+        <br>
+        <h2 style="font-family: 'Playfair Display', serif; direction: ltr;">17 JULy 2026</h2>
+
+    </div>
+</div>
+</section>
+<div class="floral-left"></div>
+<div class="floral-right"></div>
+<section id="countdown-section">
+
+    <h2 class="cd-title" style="font-family:Arizonia; margin-bottom:10px; color:#835d2fd6;">
+        Countdown
+    </h2>
+
+    <h2 style="font-family:'Playfair Display', serif; direction:ltr;color:#835d2faa; font-size: medium;">
+        UNTIL 17 JULY 2026
+    </h2>
+
+    <br>
+
+    <div class="countdown-box" style="direction:ltr;">
+
+        <div class="time">
+            <span id="days" style="color:#835d2f;font-family:Arizonia; font-size: 32px; font-weight: lighter;">00</span>
+            <small style="color:#835d2faa;font-family:Playfair Display;">Days</small>
+        </div>
+
+        <div class="vertical-divider"></div>
+
+        <div class="time">
+            <span id="hours" style="color:#835d2f;font-family:Arizonia;font-size: 32px; font-weight: lighter;">00</span>
+            <small style="color:#835d2faa;font-family:Playfair Display ;">Hours</small>
+        </div>
+
+        <div class="vertical-divider"></div>
+
+        <div class="time">
+            <span id="minutes" style="color:#835d2f;font-family:Arizonia ;font-size: 32px; font-weight: lighter;">00</span>
+            <small style="color:#835d2faa;font-family:Playfair Display ; ">Minutes</small>
+        </div>
+
+        <div class="vertical-divider"></div>
+
+        <div class="time">
+            <span id="seconds" style="color:#835d2f;font-family:Arizonia;font-size: 32px; font-weight: lighter;">00</span>
+            <small style="color:#835d2faa;font-family:Playfair Display  ;">Seconds</small>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="countdown-section">
+
+    <h2 style="
+        font-family: Arizonia;
+        padding-top:20px;
+        color:#835d2fd6;
+        font-weight:500;
+        font-size:50px;">
+        Welcome
+    </h2>
+
+    <p style="
+        font-family:'Playfair Display', serif;
+        padding-top:20px;
+        color:#835d2fa1;
+        font-size:18px;
+        line-height:2;
+        max-width:800px;
+        margin:auto;
+        font-weight:500;
+        direction: ltr;
+    ">
+
+        Mr. <strong style="color:#835d2f;">Mohamed Gad</strong><br>
+        &<br>
+        Mr. <strong style="color:#835d2f;">Alaa Hussein</strong><br><br>
+
+        request the pleasure of your company<br>
+        at the wedding celebration of their beloved children,<br><br>
+
+        <span style="
+            font-family:'Monsieur La Doulaise', cursive;
+            font-size:42px;
+            color:#835d2f;
+        ">
+            Sameh &amp; Nada
+        </span><br><br>
+
+        Your presence will be a cherished blessing<br>
+        and will make our celebration even more joyful.
+
+    </p>
+
+</section>
+
+<div class="section-divider">
+
+<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 20 Q 30 10, 50 20 Q 70 30, 90 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M30 15 Q 35 8, 40 12"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M50 22 Q 45 28, 40 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <circle cx="100" cy="20" r="4"
+            stroke="currentColor"
+            stroke-width="0.8"
+            fill="none"/>
+
+    <ellipse cx="100" cy="13" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="100" cy="27" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="17" rx="3" ry="5"
+             transform="rotate(-30 93 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="17" rx="3" ry="5"
+             transform="rotate(30 107 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="23" rx="3" ry="5"
+             transform="rotate(30 93 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="23" rx="3" ry="5"
+             transform="rotate(-30 107 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <path d="M110 20 Q 130 10, 150 20 Q 170 30, 190 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M150 18 Q 155 12, 160 16"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M170 22 Q 165 28, 160 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+</svg>
+
+</div>
+
+<section class="gallery-section">
+
+    <h2 class="gallery-title">Our Memories</h2>
+
+    <div class="swiper mySwiper">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="assists/5.jpeg">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assists/2.jpeg">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assists/3.jpeg">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assists/1.jpeg">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assists/4.jpeg">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="section-divider">
+
+<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 20 Q 30 10, 50 20 Q 70 30, 90 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M30 15 Q 35 8, 40 12"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M50 22 Q 45 28, 40 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <circle cx="100" cy="20" r="4"
+            stroke="currentColor"
+            stroke-width="0.8"
+            fill="none"/>
+
+    <ellipse cx="100" cy="13" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="100" cy="27" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="17" rx="3" ry="5"
+             transform="rotate(-30 93 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="17" rx="3" ry="5"
+             transform="rotate(30 107 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="23" rx="3" ry="5"
+             transform="rotate(30 93 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="23" rx="3" ry="5"
+             transform="rotate(-30 107 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <path d="M110 20 Q 130 10, 150 20 Q 170 30, 190 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M150 18 Q 155 12, 160 16"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M170 22 Q 165 28, 160 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+</svg>
+
+</div>
+
+<section class="time-section">
+
+    <h2 class="time-title">When & Where</h2>
+
+    <div class="time-container" style="direction: ltr;">
+
+        <div class="time-box">
+            <span class="time-number">6 PM</span>
+            <small>Starts</small>
+        </div>
+
+        <div class="time-divider">
+
+            <div class="line"></div>
+
+            <svg viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6Z"></path>
+            </svg>
+
+            <div class="line"></div>
+
+        </div>
+
+        <div class="time-box">
+            <span class="time-number">10 PM</span>
+            <small>Ends</small>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="section-divider">
+
+<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 20 Q 30 10, 50 20 Q 70 30, 90 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M30 15 Q 35 8, 40 12"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M50 22 Q 45 28, 40 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <circle cx="100" cy="20" r="4"
+            stroke="currentColor"
+            stroke-width="0.8"
+            fill="none"/>
+
+    <ellipse cx="100" cy="13" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="100" cy="27" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="17" rx="3" ry="5"
+             transform="rotate(-30 93 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="17" rx="3" ry="5"
+             transform="rotate(30 107 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="23" rx="3" ry="5"
+             transform="rotate(30 93 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="23" rx="3" ry="5"
+             transform="rotate(-30 107 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <path d="M110 20 Q 130 10, 150 20 Q 170 30, 190 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M150 18 Q 155 12, 160 16"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M170 22 Q 165 28, 160 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+</svg>
+
+</div>
+
+<section id="venue-section">
+<img src="assists/VENUE.png" alt="">
+   
+
+    <h2 class="venue-title" style="font-family:  Jim Nightshade ;color:#835d2fd6; font-weight: bold; padding: 10px;">VOLARE</h2>
+    <p class=" venue-name" style="font-family: Arizonia;color:#835d2fd6; font-size: 70px;padding: 10px;"> The Venue</p>
+    <p class="venue-address" style="color:#835d2fd6">
+        Cairo, Egypt
+    </p>
+
+    <div class="venue-divider">
+        <div></div>
+
+        <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6Z"/>
+        </svg>
+
+        <div></div>
+    </div>
+
+    <div class="map-box">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.468524948789!2d31.364233799999997!3d30.023413599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583d0047c49c19%3A0xa1c4b9fd22c98bef!2z2YHZhtiv2YIg2LHZhdin2Kwg2KfZhNiq2KzZhdi5INin2YTYrtin2YXYsw!5e0!3m2!1sen!2sae!4v1783146275898!5m2!1sen!2sae" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+    </div>
+
+    <a
+    class="map-btn"
+    href="https://maps.app.goo.gl/zAwxhn8XAE354q4v9"
+    target="_blank">
+
+        Open in Google Maps
+
+    </a>
+
+</section>
+
+
+<div class="section-divider">
+
+<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 20 Q 30 10, 50 20 Q 70 30, 90 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M30 15 Q 35 8, 40 12"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M50 22 Q 45 28, 40 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <circle cx="100" cy="20" r="4"
+            stroke="currentColor"
+            stroke-width="0.8"
+            fill="none"/>
+
+    <ellipse cx="100" cy="13" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="100" cy="27" rx="3" ry="5"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="17" rx="3" ry="5"
+             transform="rotate(-30 93 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="17" rx="3" ry="5"
+             transform="rotate(30 107 17)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="93" cy="23" rx="3" ry="5"
+             transform="rotate(30 93 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <ellipse cx="107" cy="23" rx="3" ry="5"
+             transform="rotate(-30 107 23)"
+             stroke="currentColor"
+             stroke-width="0.6"
+             fill="none"/>
+
+    <path d="M110 20 Q 130 10, 150 20 Q 170 30, 190 20"
+          stroke="currentColor"
+          stroke-width="0.8"
+          fill="none"/>
+
+    <path d="M150 18 Q 155 12, 160 16"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+    <path d="M170 22 Q 165 28, 160 24"
+          stroke="currentColor"
+          stroke-width="0.6"
+          fill="none"/>
+
+</svg>
+
+</div>
+
+<section id="venue-section" style="padding-top: 50px;">
+    
+<img src="assists/DCgirls.png" alt="">
+   
+
+    <h2 class="venue-title" style="font-family:  Jim Nightshade ;color:#835d2fd6; font-weight: bold; padding: 10px;" dir="ltr">GIRLS DRESS CODE</h2>
+    <p class=" venue-name" style="font-family: Arizonia;color:#835d2fd6; font-size: 30px;padding: 10px;" dir="ltr"> Soft Pastel Shades – Pink, Blue, Lilac, Mint, Butter Yellow & More! 🌼</p>
+   
+
+    <img src="assists/dcBOYS.png" alt="">
+   
+
+    <h2 class="venue-title" style="font-family:  Jim Nightshade ;color:#835d2fd6; font-weight: bold; padding: 10px;" dir="ltr">MEN DRESS CODE</h2>
+    <p class=" venue-name" style="font-family: Arizonia;color:#835d2fd6; font-size: 30px;padding: 10px;" dir="ltr"> Classic Black Suits 🖤</p>
+   
+
+</section>
+
+<footer id="wedding-footer">
+
+    <div class="footer-icon">
+        <svg viewBox="0 0 60 36" width="60" height="36">
+            <circle cx="22" cy="18" r="12" stroke="currentColor" fill="none"/>
+            <circle cx="38" cy="18" r="12" stroke="currentColor" fill="none"/>
+        </svg>
+    </div>
+
+    <h2 class="footer-names">
+        Sameh <span>&amp;</span> Nada
+    </h2>
+
+    <p class="footer-date" style="direction: ltr;">
+        17 JULY 2026
+    </p>
+
+    <div class="footer-divider">
+        <div></div>
+        <svg viewBox="0 0 16 16">
+            <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6Z"/>
+        </svg>
+        <div></div>
+    </div>
+
+    <p class="footer-text">
+        We would be honored to celebrate this moment with you
+    </p>
+
+    <a class="footer-link" href="#">
+        With love, Sameh & Nada
+    </a>
+
+</footer>
+<script>
+
+const video = document.getElementById('envelopeVideo');
+const bgMusic = document.getElementById('bgMusic');
+const intro = document.getElementById('intro');
+const tapText = document.querySelector('.tap-text');
+const invitation = document.getElementById('invitation');
+
+const musicBtn = document.getElementById('musicBtn');
+const musicIcon = document.getElementById('musicIcon');
+
+let started = false;
+let autoScrollActive = false;
+let scrollSpeed = 0.8;
+
+// أول ضغطة
+document.addEventListener('click', async () => {
+
+    if (started) return;
+
+    started = true;
+
+    tapText.style.display = 'none';
+
+    try {
+
+        bgMusic.volume = 1;
+        await bgMusic.play();
+
+        await video.play();
+
+    } catch(err) {
+        console.log(err);
+    }
+
+}, { once: true });
+
+// بعد انتهاء فيديو الظرف
+video.addEventListener('ended', () => {
+
+    invitation.classList.add('show');
+
+    intro.style.opacity = '0';
+
+    setTimeout(() => {
+
+        intro.remove();
+
+        document.body.style.overflow = 'auto';
+
+        // إظهار زر الموسيقى
+        musicBtn.classList.add('show');
+
+        // تشغيل الـ Auto Scroll
+        autoScrollActive = true;
+        startAutoScroll();
+
+    }, 2500);
+
+});
+
+// تشغيل / إيقاف الموسيقى
+musicBtn.addEventListener('click', () => {
+
+    if(bgMusic.paused){
+
+        bgMusic.play();
+
+        if(musicIcon){
+            musicIcon.className = "fa-solid fa-volume-high";
+        }
+
+    }else{
+
+        bgMusic.pause();
+
+        if(musicIcon){
+            musicIcon.className = "fa-solid fa-volume-xmark";
+        }
+
+    }
+
+});
+
+
+// Auto Scroll
+let isTouching = false;
+
+// للموبايل
+window.addEventListener("touchstart", () => {
+    isTouching = true;
+}, { passive: true });
+
+window.addEventListener("touchend", () => {
+    isTouching = false;
+}, { passive: true });
+
+// للكمبيوتر
+window.addEventListener("mousedown", () => {
+    isTouching = true;
+});
+
+window.addEventListener("mouseup", () => {
+    isTouching = false;
+});
+
+function startAutoScroll() {
+
+    function step() {
+
+        if (!autoScrollActive) return;
+
+        // لو المستخدم بيلمس الشاشة أو ضاغط بالماوس
+        if (!isTouching) {
+            window.scrollBy(0, scrollSpeed);
+        }
+
+        // وقف عند آخر الصفحة
+        const atBottom =
+            window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+
+        if (atBottom) {
+            autoScrollActive = false;
+            return;
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+}
+
+// Countdown
+const weddingDate = new Date("2026-07-17T00:00:00").getTime();
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+
+new Swiper(".mySwiper",{
+
+    effect:"coverflow",
+
+    grabCursor:true,
+
+    centeredSlides:true,
+
+    slidesPerView:"auto",
+
+    loop:true,
+
+    speed:900,
+
+    autoplay:{
+        delay:2500,
+        disableOnInteraction:false,
+    },
+
+    coverflowEffect:{
+        rotate:0,
+        stretch:0,
+        depth:180,
+        modifier:1.8,
+        slideShadows:false
+    }
+
+});
+
+</script>
+</body>
+</html>
